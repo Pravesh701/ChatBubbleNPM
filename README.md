@@ -15,13 +15,16 @@ npm  install @pravesh701/chatbubble --save
 
 ### Prerequisites
 
-These props must passed when used it <ChatBubble />
+These props must passed when used it 
+```
+<ChatBubble />
+```
 
 ```
-InputTextValue
-MessageArray
-sendMessageToServer
-onChangeText
+1. InputTextValue
+2. MessageArray
+3. sendMessageToServer()
+4. onChangeText()
 ```
 
 
