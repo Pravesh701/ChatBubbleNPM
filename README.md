@@ -1,6 +1,6 @@
-# ChatBubbleNPM
+# ChatBubble
 
-A simple and fully customizable React Native component that make chat screen
+A simple and fully customizable React Native component that make chat screen according to user needs.
 
 ## Installation / Getting Started
 
