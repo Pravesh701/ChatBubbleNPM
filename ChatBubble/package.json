@@ -1,0 +1,15 @@
+{
+  "name": "chatbubble",
+  "version": "1.0.0",
+  "description": " A simple and fully customizable React Native component that make chat screen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Pravesh Singh",
+  "license": "ISC"
+}
