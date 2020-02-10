@@ -55,6 +55,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ![Image description](https://github.com/Pravesh701/ChatBubbleNPM/blob/master/ChatBubble.png)
 
+![picture](ChatBubble.png)
+
 ## Acknowledgments
 
 * Inspiration by react native chat bubble
