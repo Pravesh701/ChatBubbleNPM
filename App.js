@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Text,
   StyleSheet,
@@ -9,46 +9,24 @@ import {
   FlatList,
 } from 'react-native';
 
-export default class ChatBubble extends Component {
-  state = {
-    messages: [
-      {
-        msg: 'Heloo',
-        id: Math.random(),
-        token: '',
-        email: '',
-        type: 'server',
-      },
-      {
-        msg: 'Server Message',
-        id: Math.random(),
-        token: '',
-        email: '',
-        type: 'server',
-      },
-    ],
-    value: '',
-  };
+const ChatBubble = ({ MessageArray, sendMessageToServer, InputTextValue, onChangeText }) => {
 
-  sendMessageToServer = () => {
-    if (this.state.value !== '') {
+  function sendMessageToYourServer() {
+    if (InputTextValue !== '') {
       let payload = {
-        msg: this.state.value,
+        msg: InputTextValue,
         id: Math.random(),
         token: '',
         email: '',
         type: 'client',
       };
-      let mydata = this.state.messages;
+      let mydata = MessageArray;
       mydata.push(payload);
-      this.setState({
-        messages: mydata,
-        value: '',
-      });
+      sendMessageToServer(mydata, payload)
     }
   };
 
-  renderFlatListItem = rowData => {
+  function renderFlatListItem(rowData) {
     return (
       <View style={styles.flatListContainerStyle}>
         {rowData.item.type === 'client' ? (
@@ -63,31 +41,28 @@ export default class ChatBubble extends Component {
       </View>
     );
   };
-
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data={this.state.messages}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={this.renderFlatListItem}
-        />
-        <View style={styles.sendMessageConatinerStyle}>
-          <TextInput
-            style={styles.sendMsgTextInputStyle}
-            value={this.state.value}
-            placeholder={"please type here!"}
-            placeholderTextColor={"#000"}
-            onChangeText={val => this.setState({ value: val })}></TextInput>
-          <TouchableOpacity
-            style={styles.sendMsgButtonStyle}
-            onPress={this.sendMessageToServer}>
-            <Text>Send Message</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={MessageArray}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={renderFlatListItem}
+      />
+      <View style={styles.sendMessageConatinerStyle}>
+        <TextInput
+          style={styles.sendMsgTextInputStyle}
+          value={InputTextValue}
+          placeholder={"please type here!"}
+          placeholderTextColor={"#000"}
+          onChangeText={val => onChangeText(val)}></TextInput>
+        <TouchableOpacity
+          style={styles.sendMsgButtonStyle}
+          onPress={sendMessageToYourServer}>
+          <Text>Send Message</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -137,3 +112,5 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
 });
+
+export default ChatBubble;

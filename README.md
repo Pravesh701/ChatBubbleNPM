@@ -13,19 +13,78 @@ or
 npm  install @pravesh701/chatbubble --save
 ```
 
+### Prerequisites
+
+These props must passed when used it <ChatBubble />
+
+```
+InputTextValue
+MessageArray
+sendMessageToServer
+onChangeText
+```
+
+
 ### Example
 
 ```
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import ChatBubble from '@pravesh701/chatbubble';
 
 export default class App extends Component {
+
+  state = {
+    //your message array
+    messages: [
+      {
+        msg: 'Heloo',
+        id: Math.random(),
+        token: '',
+        email: '',
+        type: 'server',
+      },
+      {
+        msg: 'Server Message',
+        id: Math.random(),
+        token: '',
+        email: '',
+        type: 'server',
+      },
+    ],
+    //for textInput
+    value: '',
+  };
+
+  /**
+   * send mesaage to server via payload or whole array
+   */
+  _sendMethod = (myArray, payload) => {
+    this.setState({
+      messages: myArray,
+      value: '',
+    });
+    console.log("Recieved Call for sending user messages")
+  }
+  /**
+   * To change Input Text Value
+   */
+  _onChangeTextForSendMessage = (value) => {
+    this.setState({
+      value: value
+    })
+  }
+
   render() {
     return (
-        <View style = {styles.container}>
-          <ChatBubble />
-        </View>
+      <View style={styles.container}>
+        <ChatBubble
+          InputTextValue={this.state.value}
+          MessageArray={this.state.messages}
+          sendMessageToServer={this._sendMethod}
+          onChangeText={this._onChangeTextForSendMessage}
+        />
+      </View>
     );
   }
 }
@@ -35,6 +94,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
 ```
 
 ## Contributing
