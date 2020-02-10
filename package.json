@@ -1,6 +1,6 @@
 {
   "name": "@pravesh701/chatbubble",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": " A simple and fully customizable React Native component that make chat screen",
   "main": "index.js",
   "scripts": {
