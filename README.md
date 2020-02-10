@@ -17,7 +17,12 @@ npm  install @pravesh701/chatbubble --save
 
 These props must passed when used it 
 ```
-<ChatBubble />
+<ChatBubble
+          InputTextValue={this.state.value}
+          MessageArray={this.state.messages}
+          sendMessageToServer={this._sendMethod}
+          onChangeText={this._onChangeTextForSendMessage}
+        />
 ```
 
 ```
