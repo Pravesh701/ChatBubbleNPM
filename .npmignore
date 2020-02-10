@@ -1,0 +1,21 @@
+# Logs
+*.log
+npm-debug.log
+
+# Runtime data
+tmp
+build
+dist
+# Logs
+*.log
+npm-debug.log
+
+# Dependency directory
+node_modules
+android
+ios
+# Runtime data
+tmp
+
+# Examples (If applicable to your project)
+examples
