@@ -121,7 +121,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## ScreenShots
 
-![picture](ChatBubble.png)
+![picture](https://github.com/Pravesh701/ChatBubbleNPM/blob/master/ChatBubble.png)
 
 ## Acknowledgments
 
